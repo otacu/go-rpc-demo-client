@@ -1,0 +1,23 @@
+// protoc --micro_out=. --go_out=. anime.proto
+syntax = "proto3";
+
+package com.egoist.go.demo.anime;
+
+service AnimeService {
+  rpc QueryAnimeInfo(QueryAnimeInfoRequest) returns (QueryAnimeInfoResponse) {}
+}
+
+message QueryAnimeInfoRequest {
+  int32 anime_id = 1;
+}
+
+message AnimeThemeSong {
+  string name = 1;
+  string singer = 2;
+}
+
+message QueryAnimeInfoResponse {
+  int32 anime_id = 1;
+  string en_name = 2;
+  repeated AnimeThemeSong themeSongArray = 3;
+}
